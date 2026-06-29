@@ -19,6 +19,8 @@
       --gold-lt:   #DFB07A;
       --charcoal:  #2C2117;
       --muted:     #7A6A5A;
+      --green:     #3D6B52;
+      --green-lt:  #EAF2ED;
       --white:     #FFFFFF;
     }
 
@@ -101,7 +103,7 @@
 
     h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
-    /* HERO */
+    /* ── HERO ── */
     #hero {
       background: var(--charcoal);
       position: relative;
@@ -143,7 +145,7 @@
       font-size: 1.05rem;
       font-weight: 300;
       color: rgba(255,255,255,0.65);
-      max-width: 540px;
+      max-width: 560px;
       line-height: 1.75;
       margin-bottom: 48px;
       opacity: 0;
@@ -194,11 +196,79 @@
       animation: scrollPulse 2s infinite;
     }
 
-    /* CENÁRIO */
-    #cenario { background: var(--cream); }
+    /* ── DIFERENCIAIS ── */
+    #diferenciais { background: var(--cream); }
+    #diferenciais h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    #diferenciais h2 em { color: var(--cognac); font-style: italic; }
+
+    .dif-intro {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 620px;
+      margin-bottom: 56px;
+    }
+
+    .dif-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .dif-card {
+      background: var(--white);
+      border: 1px solid var(--sand);
+      border-radius: 14px;
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .dif-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(44,33,23,0.08); }
+    .dif-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--cognac), var(--gold));
+    }
+    .dif-card.green::before { background: linear-gradient(90deg, var(--green), #6BA884); }
+    .dif-emoji { font-size: 2rem; margin-bottom: 16px; display: block; }
+    .dif-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+    }
+    .dif-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+
+    .sustentabilidade-banner {
+      margin-top: 40px;
+      padding: 28px 36px;
+      background: var(--green-lt);
+      border: 1px solid rgba(61,107,82,0.2);
+      border-left: 4px solid var(--green);
+      border-radius: 0 12px 12px 0;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .sust-icon { font-size: 2rem; flex-shrink: 0; }
+    .sust-text h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+    .sust-text p { font-size: 0.88rem; color: #4A6B56; line-height: 1.6; }
+
+    /* ── CENÁRIO ── */
+    #cenario { background: var(--sand); }
     #cenario h2 {
       font-size: clamp(2rem, 4vw, 3.2rem);
-      color: var(--charcoal);
       line-height: 1.2;
       margin-bottom: 20px;
     }
@@ -219,7 +289,7 @@
     .cenario-cards { display: flex; flex-direction: column; gap: 16px; }
     .card-insight {
       background: var(--white);
-      border: 1px solid var(--sand);
+      border: 1px solid rgba(200,149,74,0.2);
       border-radius: 12px;
       padding: 24px 28px;
       border-left: 4px solid var(--gold);
@@ -234,81 +304,83 @@
     }
     .card-insight p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
 
-    /* OPORTUNIDADE */
-    #oportunidade { background: var(--sand); }
-    #oportunidade .container {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 80px;
-      align-items: center;
-    }
+    /* ── OPORTUNIDADE ── */
+    #oportunidade { background: var(--charcoal); }
     #oportunidade h2 {
       font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.2;
-      margin-bottom: 24px;
-    }
-    #oportunidade h2 em { color: var(--cognac); font-style: italic; }
-    #oportunidade p { color: var(--muted); line-height: 1.8; margin-bottom: 16px; }
-
-    .opp-numbers { display: flex; flex-direction: column; gap: 28px; }
-    .opp-number {
-      display: flex;
-      align-items: flex-start;
-      gap: 24px;
-      padding: 28px;
-      background: var(--white);
-      border-radius: 14px;
-      border: 1px solid rgba(200,149,74,0.2);
-    }
-    .opp-num-big {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      font-weight: 700;
-      color: var(--cognac);
-      line-height: 1;
-      min-width: 80px;
-    }
-    .opp-num-text h4 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-      color: var(--charcoal);
-      margin-bottom: 4px;
-    }
-    .opp-num-text p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; margin: 0; }
-
-    /* SERVIÇOS */
-    #servicos { background: var(--charcoal); }
-    #servicos h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
       color: var(--white);
-      text-align: center;
+      line-height: 1.2;
       margin-bottom: 12px;
+      text-align: center;
     }
-    #servicos h2 em { color: var(--gold-lt); font-style: italic; }
-    #servicos > .container > p {
+    #oportunidade h2 em { color: var(--gold-lt); font-style: italic; }
+    #oportunidade > .container > p {
       text-align: center;
       color: rgba(255,255,255,0.5);
-      max-width: 520px;
+      max-width: 560px;
       margin: 0 auto 64px;
       line-height: 1.7;
     }
+
+    .opp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .opp-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 32px 28px;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .opp-card:hover {
+      background: rgba(200,149,74,0.1);
+      border-color: rgba(200,149,74,0.3);
+    }
+    .opp-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--cognac);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .opp-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .opp-card p { font-size: 0.88rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
+
+    /* ── SERVIÇOS ── */
+    #servicos { background: var(--cream); }
+    #servicos h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 12px;
+    }
+    #servicos h2 em { color: var(--cognac); font-style: italic; }
+    #servicos > .container > p {
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 56px;
+    }
+
     .servicos-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
     }
     .servico-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: var(--white);
+      border: 1px solid var(--sand);
       border-radius: 14px;
-      padding: 36px 28px;
-      transition: background 0.3s, border-color 0.3s, transform 0.3s;
+      padding: 32px 28px;
+      transition: transform 0.25s, box-shadow 0.25s;
     }
-    .servico-card:hover {
-      background: rgba(200,149,74,0.08);
-      border-color: rgba(200,149,74,0.3);
-      transform: translateY(-4px);
-    }
+    .servico-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(44,33,23,0.08); }
     .servico-icon {
       width: 44px; height: 44px;
       background: linear-gradient(135deg, var(--cognac), var(--gold));
@@ -319,11 +391,11 @@
     }
     .servico-card h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
-      color: var(--white);
-      margin-bottom: 12px;
+      font-size: 1.1rem;
+      color: var(--charcoal);
+      margin-bottom: 10px;
     }
-    .servico-card p { font-size: 0.88rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
+    .servico-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
     .servico-list {
       list-style: none;
       margin-top: 16px;
@@ -333,7 +405,7 @@
     }
     .servico-list li {
       font-size: 0.82rem;
-      color: rgba(255,255,255,0.45);
+      color: var(--muted);
       padding-left: 14px;
       position: relative;
     }
@@ -344,8 +416,8 @@
       color: var(--gold);
     }
 
-    /* FASES */
-    #fases { background: var(--cream); }
+    /* ── FASES ── */
+    #fases { background: var(--sand); }
     #fases h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 12px; }
     #fases h2 em { color: var(--cognac); font-style: italic; }
     #fases > .container > p {
@@ -412,30 +484,34 @@
       padding: 4px 14px;
     }
 
-    /* INVESTIMENTO */
-    #investimento { background: var(--sand); }
+    /* ── INVESTIMENTO ── */
+    #investimento { background: var(--charcoal); }
     #investimento .container {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 64px;
       align-items: start;
     }
-    #investimento h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 12px; }
-    #investimento h2 em { color: var(--cognac); font-style: italic; }
+    #investimento h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    #investimento h2 em { color: var(--gold-lt); font-style: italic; }
     #investimento > .container > div:first-child > p {
-      color: var(--muted);
+      color: rgba(255,255,255,0.55);
       line-height: 1.8;
       margin-bottom: 32px;
     }
+
     .plano {
-      background: var(--white);
+      background: rgba(255,255,255,0.04);
       border-radius: 16px;
       overflow: hidden;
-      border: 1px solid var(--sand);
-      box-shadow: 0 8px 40px rgba(44,33,23,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
     }
     .plano-header {
-      background: linear-gradient(135deg, var(--cognac), var(--charcoal));
+      background: linear-gradient(135deg, var(--cognac), #4A2D1A);
       padding: 32px;
     }
     .plano-header .tag { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.7); }
@@ -448,29 +524,29 @@
     .plano-header p { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
     .plano-price {
       padding: 28px 32px;
-      border-bottom: 1px solid var(--sand);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
     .plano-price .label {
       font-size: 0.72rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: rgba(255,255,255,0.4);
       margin-bottom: 6px;
     }
     .price-value {
       font-family: 'Playfair Display', serif;
       font-size: 2.4rem;
       font-weight: 700;
-      color: var(--cognac);
+      color: var(--gold-lt);
     }
     .price-value sup { font-size: 1.2rem; vertical-align: super; }
-    .price-value span { font-size: 1rem; color: var(--muted); font-weight: 400; }
+    .price-value span { font-size: 1rem; color: rgba(255,255,255,0.4); font-weight: 400; }
     .plano-includes { padding: 28px 32px; }
     .plano-includes h4 {
       font-size: 0.75rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: rgba(255,255,255,0.4);
       margin-bottom: 20px;
     }
     .include-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
@@ -479,7 +555,7 @@
       align-items: flex-start;
       gap: 12px;
       font-size: 0.9rem;
-      color: var(--charcoal);
+      color: rgba(255,255,255,0.75);
       line-height: 1.5;
     }
     .include-list li .check {
@@ -495,16 +571,16 @@
     .nota {
       margin-top: 32px;
       padding: 20px 24px;
-      background: rgba(200,149,74,0.07);
+      background: rgba(200,149,74,0.08);
       border-left: 3px solid var(--gold);
       border-radius: 0 8px 8px 0;
     }
-    .nota p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
-    .nota strong { color: var(--charcoal); }
+    .nota p { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
+    .nota strong { color: var(--gold-lt); }
 
-    /* CTA */
+    /* ── CTA ── */
     #cta {
-      background: var(--charcoal);
+      background: var(--cream);
       min-height: 60vh;
       text-align: center;
     }
@@ -516,12 +592,12 @@
     }
     #cta h2 {
       font-size: clamp(2rem, 5vw, 3.8rem);
-      color: var(--white);
+      color: var(--charcoal);
       line-height: 1.15;
       margin-bottom: 20px;
     }
-    #cta h2 em { color: var(--gold-lt); font-style: italic; }
-    #cta p { color: rgba(255,255,255,0.5); font-size: 1rem; line-height: 1.75; margin-bottom: 48px; max-width: 480px; }
+    #cta h2 em { color: var(--cognac); font-style: italic; }
+    #cta p { color: var(--muted); font-size: 1rem; line-height: 1.75; margin-bottom: 48px; max-width: 480px; }
 
     .btn-cta {
       display: inline-flex;
@@ -536,19 +612,19 @@
       padding: 16px 36px;
       border-radius: 50px;
       transition: transform 0.25s, box-shadow 0.25s;
-      box-shadow: 0 8px 32px rgba(123,63,42,0.4);
+      box-shadow: 0 8px 32px rgba(123,63,42,0.3);
     }
-    .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(123,63,42,0.5); }
+    .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(123,63,42,0.4); }
 
     .cta-byline {
       margin-top: 32px;
       font-size: 0.82rem;
-      color: rgba(255,255,255,0.3);
+      color: var(--muted);
     }
-    .cta-byline strong { color: rgba(255,255,255,0.6); }
+    .cta-byline strong { color: var(--charcoal); }
 
     footer {
-      background: #1A1108;
+      background: var(--charcoal);
       padding: 32px 48px;
       display: flex;
       align-items: center;
@@ -589,10 +665,12 @@
       nav { padding: 16px 24px; }
       .nav-links { display: none; }
       section { padding: 100px 24px 64px; }
-      .cenario-grid,
-      #oportunidade .container,
-      #investimento .container { grid-template-columns: 1fr; gap: 40px; }
+      .dif-grid,
+      .opp-grid,
       .servicos-grid { grid-template-columns: 1fr; }
+      .cenario-grid,
+      #investimento .container { grid-template-columns: 1fr; gap: 40px; }
+      .sustentabilidade-banner { flex-direction: column; gap: 12px; }
       footer { flex-direction: column; gap: 8px; text-align: center; }
     }
   </style>
@@ -604,24 +682,25 @@
 <nav id="nav">
   <div class="nav-logo">Baskets<span>.</span></div>
   <div class="nav-links">
+    <a href="#diferenciais">Diferenciais</a>
     <a href="#cenario">Cenário</a>
     <a href="#oportunidade">Oportunidade</a>
     <a href="#servicos">Serviços</a>
-    <a href="#fases">Fases</a>
     <a href="#investimento">Investimento</a>
   </div>
 </nav>
 
+<!-- HERO -->
 <section id="hero">
   <div class="container">
     <p class="hero-kicker">Proposta Comercial · Junho 2026</p>
     <h1>
-      Uma plataforma completa<br />
-      merece uma presença<br />
-      <em>igualmente completa.</em>
+      Personalização real.<br />
+      Escala corporativa.<br />
+      <em>Propósito de verdade.</em>
     </h1>
     <p class="hero-sub">
-      Da personalização ao envio nacional: como levar a Baskets de onde está hoje — toda orgânica — para uma máquina de aquisição escalável e consistente.
+      A Baskets não é uma loja de kits — é uma plataforma completa para grandes empresas que querem presentear com significado. Como fazer isso ser visto, reconhecido e escolhido.
     </p>
     <div class="hero-meta">
       <div class="hero-meta-item">
@@ -644,116 +723,152 @@
   </div>
 </section>
 
+<!-- DIFERENCIAIS -->
+<section id="diferenciais">
+  <div class="container">
+    <span class="tag reveal">O que torna a Baskets única</span>
+    <h2 class="reveal">Não é só um kit.<br /><em>É uma experiência.</em></h2>
+    <p class="dif-intro reveal">A Baskets opera em um nível diferente: personalização total, clientes corporativos de grande porte e um compromisso genuíno com sustentabilidade. Isso precisa ser comunicado à altura.</p>
+
+    <div class="dif-grid">
+      <div class="dif-card reveal reveal-delay-1">
+        <span class="dif-emoji">🎨</span>
+        <h3>Personalização total</h3>
+        <p>Caixa, itens, acabamento — tudo pode ser criado do zero para a marca do cliente. Coleções exclusivas como a da Heinz mostram o nível de customização que só a Baskets entrega.</p>
+      </div>
+      <div class="dif-card reveal reveal-delay-2">
+        <span class="dif-emoji">🏢</span>
+        <h3>Foco em grandes empresas</h3>
+        <p>Multinacionais e grandes corporações confiam na Baskets para kits de onboarding, parentalidade e brindes de eventos. Volumes de 100, 200, 300 kits com atendimento próximo e dedicado.</p>
+      </div>
+      <div class="dif-card reveal reveal-delay-3">
+        <span class="dif-emoji">🛍️</span>
+        <h3>Lojas pronta entrega</h3>
+        <p>Marcas criam coleções dentro da plataforma Baskets — produtos prontos, identidade da marca, entrega para todo o Brasil. Uma nova fronteira de crescimento com demanda crescente.</p>
+      </div>
+    </div>
+
+    <div class="sustentabilidade-banner reveal">
+      <div class="sust-icon">🌿</div>
+      <div class="sust-text">
+        <h4>Sustentabilidade como pilar, não como detalhe</h4>
+        <p>Portfólio de produtos sustentáveis e inclusivos, feitos por pequenos produtores. Todos os envios são carbono neutro. A Baskets tem um compromisso real com o planeta — e isso é diferencial competitivo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CENÁRIO -->
 <section id="cenario">
   <div class="container">
     <span class="tag reveal">Diagnóstico</span>
-    <h2 class="reveal">O que está acontecendo<br /><em>hoje na Baskets</em></h2>
+    <h2 class="reveal">Onde a Baskets<br /><em>está hoje</em></h2>
     <div class="cenario-grid">
       <div class="cenario-text reveal reveal-delay-1">
-        <p>A Baskets já tem algo que muitas marcas demoram anos para construir: uma oferta robusta e diferenciada — personalização, armazenagem, montagem de kits e envio para todo o Brasil. Isso é uma plataforma completa, não apenas uma loja.</p>
-        <p>Porém, quem ainda não conhece a Baskets não chega até ela. A captação hoje depende quase inteiramente de outbound, buscas orgânicas no Google e indicações — canais valiosos, mas com crescimento limitado e lento.</p>
-        <p>A boa notícia: o potencial represado é enorme. Com a estrutura certa de comunicação e tráfego, cada novo visitante pode virar cliente em poucos dias.</p>
+        <p>A Baskets já conquistou o que muitas marcas levam anos para alcançar: uma carteira de grandes clientes corporativos que confiam na plataforma para experiências personalizadas em escala.</p>
+        <p>A captação vem principalmente de outbound, indicações e busca orgânica no Google — canais que funcionam, mas que dependem de esforço constante e têm crescimento limitado.</p>
+        <p>O próximo passo natural é fazer a Baskets ser <em>encontrada</em> antes de precisar ir buscar. E especialmente, fazer as lojas pronta entrega crescerem — onde há demanda real e margem para escalar.</p>
       </div>
       <div class="cenario-cards">
         <div class="card-insight reveal reveal-delay-1">
-          <h4>Sem investimento em tráfego pago</h4>
-          <p>Todo crescimento depende de alcance orgânico. Funciona, mas tem teto baixo — especialmente em períodos sazonais de alta demanda.</p>
+          <h4>Zero tráfego pago até hoje</h4>
+          <p>Toda aquisição é orgânica ou outbound. Com um produto premium e público corporativo definido, há muito espaço para campanhas de alta precisão e ROI.</p>
         </div>
         <div class="card-insight reveal reveal-delay-2">
-          <h4>Produto premium, presença discreta</h4>
-          <p>A plataforma entrega mais do que a maioria dos concorrentes, mas isso ainda não está sendo comunicado de forma ativa e contínua ao mercado.</p>
+          <h4>Lojas pronta entrega em alta demanda</h4>
+          <p>A plataforma de lojas está crescendo e precisa de mais visibilidade. É o modelo com maior potencial de escala sem aumentar proporcionalmente a equipe de atendimento.</p>
         </div>
         <div class="card-insight reveal reveal-delay-3">
-          <h4>Sazonalidade como oportunidade</h4>
-          <p>Kits de onboarding e kits de final de ano são demandas recorrentes B2B — e a Baskets está perfeitamente posicionada para dominá-las.</p>
+          <h4>Diferenciais pouco comunicados</h4>
+          <p>Sustentabilidade, personalização total, entregas carbono neutro — tudo isso existe, mas ainda não está sendo usado como argumento de venda ativo no digital.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- OPORTUNIDADE -->
 <section id="oportunidade">
   <div class="container">
-    <div>
-      <span class="tag reveal">Por que agora</span>
-      <h2 class="reveal">A janela está<br /><em>aberta.</em></h2>
-      <p class="reveal reveal-delay-1">O mercado de presentes e kits corporativos cresce ano após ano, especialmente no digital. Empresas de todas as regiões buscam fornecedores confiáveis que entreguem em todo o Brasil com personalização — exatamente o que a Baskets já faz.</p>
-      <p class="reveal reveal-delay-2">Cada mês sem presença ativa é um mês em que o concorrente ocupa o espaço que deveria ser seu.</p>
-    </div>
-    <div class="opp-numbers">
-      <div class="opp-number reveal reveal-delay-1">
-        <div class="opp-num-big">01</div>
-        <div class="opp-num-text">
-          <h4>Kits de Onboarding</h4>
-          <p>Empresas em expansão precisam de kits para novos colaboradores. É uma demanda recorrente, previsível e de alto ticket — ideal para contratos recorrentes.</p>
-        </div>
+    <span class="tag reveal" style="color:var(--gold-lt); border-color:rgba(200,149,74,0.3);">Por que agora</span>
+    <h2 class="reveal">Três frentes,<br /><em>uma estratégia.</em></h2>
+    <p class="reveal">Cada uma com timing e potencial próprios — e todas podem ser ativadas em paralelo.</p>
+
+    <div class="opp-grid">
+      <div class="opp-card reveal reveal-delay-1">
+        <div class="opp-num">01</div>
+        <h3>Lojas pronta entrega</h3>
+        <p>Empresas que já querem uma coleção exclusiva prontos para comprar. Conteúdo mostrando casos reais (como coleções de marcas) converte diretamente.</p>
       </div>
-      <div class="opp-number reveal reveal-delay-2">
-        <div class="opp-num-big">02</div>
-        <div class="opp-num-text">
-          <h4>Final de Ano</h4>
-          <p>O Q4 é o maior período do segmento. Começar a construir audiência agora garante que a Baskets entre no radar das empresas antes da corrida de novembro.</p>
-        </div>
+      <div class="opp-card reveal reveal-delay-2">
+        <div class="opp-num">02</div>
+        <h3>Kits corporativos recorrentes</h3>
+        <p>Onboarding, parentalidade, eventos — contratos de 100 a 300 kits são o core do negócio. LinkedIn e Google Search podem trazer novos RHs e gestores até a Baskets.</p>
       </div>
-      <div class="opp-number reveal reveal-delay-3">
-        <div class="opp-num-big">03</div>
-        <div class="opp-num-text">
-          <h4>Plataforma Completa</h4>
-          <p>Personalização + armazenagem + montagem + envio nacional é diferencial real. Pouquíssimos concorrentes entregam tudo isso — e isso precisa ser gritado.</p>
-        </div>
+      <div class="opp-card reveal reveal-delay-3">
+        <div class="opp-num">03</div>
+        <h3>Final de ano · Q4</h3>
+        <p>O maior período do segmento corporativo. Empresas que já confiam na Baskets voltam — e as que ainda não conhecem precisam te encontrar antes de escolher outra.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- SERVIÇOS -->
 <section id="servicos">
   <div class="container">
-    <span class="tag reveal" style="color:var(--gold-lt); border-color:rgba(200,149,74,0.3);">O que vamos fazer</span>
+    <span class="tag reveal">O que vamos fazer</span>
     <h2 class="reveal">Estratégia <em>integrada</em><br />do orgânico ao pago</h2>
-    <p class="reveal">Uma atuação em camadas: construímos autoridade, geramos demanda e convertemos com eficiência.</p>
+    <p class="reveal">Uma atuação em camadas construída para o perfil B2B da Baskets: autoridade, geração de demanda e conversão de decisores corporativos.</p>
+
     <div class="servicos-grid">
       <div class="servico-card reveal reveal-delay-1">
         <div class="servico-icon">📱</div>
         <h3>Gestão de Redes Sociais</h3>
-        <p>Construção de presença consistente e autoridade de marca no Instagram e LinkedIn.</p>
+        <p>Presença consistente no Instagram e LinkedIn com foco em decisores corporativos — RH, marketing, gestores de compras.</p>
         <ul class="servico-list">
           <li>Calendário editorial mensal</li>
           <li>Criação de conteúdo (copy + design)</li>
-          <li>Reels e carrosséis estratégicos</li>
+          <li>Cases de personalização e lojas</li>
+          <li>Conteúdo de sustentabilidade</li>
           <li>Gestão de comentários e DMs</li>
         </ul>
       </div>
       <div class="servico-card reveal reveal-delay-2">
         <div class="servico-icon">🎯</div>
         <h3>Tráfego Pago</h3>
-        <p>Campanhas no Meta Ads e Google Ads para gerar demanda ativa e capturar quem já busca.</p>
+        <p>Campanhas com segmentação precisa para o público corporativo — Meta Ads para awareness e LinkedIn/Google para intenção de compra.</p>
         <ul class="servico-list">
           <li>Campanhas de conversão (Meta)</li>
-          <li>Google Search para intenção de compra</li>
-          <li>Remarketing e lookalike</li>
-          <li>Relatórios semanais de performance</li>
+          <li>Google Search para kits corporativos</li>
+          <li>Segmentação por cargo e setor</li>
+          <li>Remarketing para quem visitou a loja</li>
+          <li>Relatórios quinzenais</li>
         </ul>
       </div>
       <div class="servico-card reveal reveal-delay-3">
         <div class="servico-icon">✍️</div>
-        <h3>Comunicação & Posicionamento</h3>
-        <p>Articular o diferencial da Baskets de forma clara, consistente e que converte.</p>
+        <h3>Posicionamento & Sazonalidades</h3>
+        <p>Comunicar os diferenciais reais da Baskets com consistência — e preparar as campanhas sazonais com antecedência.</p>
         <ul class="servico-list">
-          <li>Definição de mensagens-chave</li>
-          <li>Conteúdo para sazonalidades</li>
-          <li>Campanhas de onboarding kits</li>
-          <li>Ativações de final de ano</li>
+          <li>Mensagens-chave de personalização</li>
+          <li>Comunicação de sustentabilidade</li>
+          <li>Campanha de onboarding kits</li>
+          <li>Ativação de lojas pronta entrega</li>
+          <li>Planejamento de final de ano (Q4)</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
+<!-- FASES -->
 <section id="fases">
   <div class="container">
     <span class="tag reveal">Cronograma</span>
     <h2 class="reveal">Como chegamos<br /><em>lá juntas</em></h2>
-    <p class="reveal">Trabalhamos em fases para garantir que cada etapa seja construída sobre uma base sólida.</p>
+    <p class="reveal">Fases pensadas para construir cada camada sobre uma base sólida — sem queimar etapas.</p>
+
     <div class="timeline">
       <div class="fase reveal reveal-delay-1">
         <div class="fase-header">
@@ -761,12 +876,12 @@
           <span class="fase-period">Mês 1</span>
         </div>
         <h3>Imersão e Estratégia</h3>
-        <p>Entendemos a fundo a Baskets, o público-alvo, os concorrentes e as sazonalidades. Definimos posicionamento, mensagens e o plano de canais.</p>
+        <p>Entendemos a fundo a Baskets, os clientes atuais, os diferenciais de sustentabilidade e personalização. Definimos tom de voz, personas corporativas e o plano de canais.</p>
         <ul class="fase-bullets">
           <li>Briefing completo</li>
+          <li>Personas B2B (RH, marketing, compras)</li>
           <li>Análise de concorrência</li>
-          <li>Persona B2B e B2C</li>
-          <li>Plano de canais e metas</li>
+          <li>Tom de voz e mensagens-chave</li>
         </ul>
       </div>
       <div class="fase reveal reveal-delay-2">
@@ -774,13 +889,13 @@
           <span class="fase-num">Fase 02</span>
           <span class="fase-period">Meses 1–2</span>
         </div>
-        <h3>Ativação de Conteúdo e Redes</h3>
-        <p>Começamos a publicar com consistência, testamos formatos e construímos o ativo orgânico que vai alimentar as campanhas pagas.</p>
+        <h3>Ativação de Conteúdo</h3>
+        <p>Publicações consistentes no Instagram e LinkedIn. Foco em mostrar cases reais, o processo de personalização, as lojas pronta entrega e o compromisso com sustentabilidade.</p>
         <ul class="fase-bullets">
           <li>Primeiros 30 posts</li>
-          <li>Identidade visual de conteúdo</li>
-          <li>Configuração de Pixel e tags</li>
-          <li>A/B de mensagens</li>
+          <li>Série de cases de personalização</li>
+          <li>Conteúdo de sustentabilidade</li>
+          <li>Configuração de Pixel/tags</li>
         </ul>
       </div>
       <div class="fase reveal reveal-delay-3">
@@ -788,12 +903,12 @@
           <span class="fase-num">Fase 03</span>
           <span class="fase-period">Mês 2 em diante</span>
         </div>
-        <h3>Lançamento de Tráfego Pago</h3>
-        <p>Com o orgânico rodando e os pixels aquecidos, ligamos as campanhas pagas com segmentações precisas — foco em kits de onboarding e captação B2B.</p>
+        <h3>Tráfego Pago</h3>
+        <p>Com pixels aquecidos e conteúdo rodando, ativamos campanhas pagas com segmentação por cargo e setor — focando em quem decide compras corporativas.</p>
         <ul class="fase-bullets">
           <li>Campanhas Meta Ads</li>
-          <li>Google Search</li>
-          <li>Públicos de remarketing</li>
+          <li>Google Search (kits corporativos)</li>
+          <li>Campanhas de lojas pronta entrega</li>
           <li>Otimização semanal</li>
         </ul>
       </div>
@@ -802,12 +917,12 @@
           <span class="fase-num">Fase 04</span>
           <span class="fase-period">Q4 · Setembro → Dezembro</span>
         </div>
-        <h3>Ativação de Final de Ano</h3>
-        <p>Com a base construída, executamos a campanha sazonal mais importante do ano — kits corporativos de final de ano — com máxima eficiência e escala.</p>
+        <h3>Final de Ano</h3>
+        <p>A campanha mais importante do ano para kits corporativos. Com a base construída, chegamos ao Q4 com audiência qualificada, conteúdo pronto e campanhas no ponto.</p>
         <ul class="fase-bullets">
-          <li>Campanha fim de ano</li>
-          <li>Landing page dedicada</li>
+          <li>Campanha corporativa de fim de ano</li>
           <li>Escala de budget</li>
+          <li>Conteúdo de urgência e sazonalidade</li>
           <li>Pós-venda e fidelização</li>
         </ul>
       </div>
@@ -815,22 +930,25 @@
   </div>
 </section>
 
+<!-- INVESTIMENTO -->
 <section id="investimento">
   <div class="container">
     <div>
-      <span class="tag reveal">Investimento</span>
+      <span class="tag reveal" style="color:var(--gold-lt); border-color:rgba(200,149,74,0.3);">Investimento</span>
       <h2 class="reveal">Transparência<br /><em>em cada detalhe</em></h2>
-      <p class="reveal reveal-delay-1">A proposta abaixo cobre toda a gestão estratégica e operacional. O investimento em mídia paga (verba de anúncios) é definido junto com você, conforme objetivos e momento do negócio.</p>
+      <p class="reveal reveal-delay-1">A proposta cobre toda a gestão estratégica e operacional. A verba de mídia paga é definida junto com você, conforme objetivos e momento do negócio.</p>
+
       <div class="nota reveal reveal-delay-2">
-        <p><strong>Sobre a verba de tráfego:</strong> Recomendamos iniciar com <strong>R$ 1.500 a R$ 3.000/mês</strong> em anúncios para os primeiros meses, com incremento progressivo conforme os resultados. Esse valor vai direto para as plataformas (Meta/Google) e não passa por nós.</p>
+        <p><strong>Sobre a verba de tráfego:</strong> Recomendamos iniciar com <strong>R$ 1.500 a R$ 3.000/mês</strong> em anúncios, com incremento progressivo. Esse valor vai direto para Meta/Google — não passa por nós.</p>
       </div>
     </div>
+
     <div>
       <div class="plano reveal reveal-delay-1">
         <div class="plano-header">
           <span class="tag">Plano Completo</span>
           <h3>Baskets · Gestão Integrada</h3>
-          <p>Redes sociais + tráfego pago + estratégia</p>
+          <p>Redes sociais + tráfego pago + estratégia corporativa</p>
         </div>
         <div class="plano-price">
           <div class="label">Mensalidade</div>
@@ -842,13 +960,14 @@
           <h4>O que está incluído</h4>
           <ul class="include-list">
             <li><span class="check"></span>Estratégia mensal de conteúdo e campanhas</li>
-            <li><span class="check"></span>Gestão completa de Instagram e LinkedIn</li>
+            <li><span class="check"></span>Gestão de Instagram e LinkedIn</li>
             <li><span class="check"></span>Criação de peças (design + copy)</li>
+            <li><span class="check"></span>Conteúdo de cases, personalização e sustentabilidade</li>
             <li><span class="check"></span>Configuração e gestão de campanhas Meta Ads</li>
-            <li><span class="check"></span>Campanhas Google Search</li>
+            <li><span class="check"></span>Google Search para kits corporativos</li>
             <li><span class="check"></span>Relatórios quinzenais de resultados</li>
             <li><span class="check"></span>Reunião mensal de alinhamento</li>
-            <li><span class="check"></span>Planejamento de sazonalidades (onboarding kits + fim de ano)</li>
+            <li><span class="check"></span>Planejamento de sazonalidades e Q4</li>
           </ul>
         </div>
       </div>
@@ -856,9 +975,10 @@
   </div>
 </section>
 
+<!-- CTA -->
 <section id="cta">
   <div class="container">
-    <span class="tag reveal" style="color:var(--gold-lt); border-color:rgba(200,149,74,0.3);">Próximo passo</span>
+    <span class="tag reveal">Próximo passo</span>
     <h2 class="reveal">Prontas para<br /><em>começar?</em></h2>
     <p class="reveal">Sugiro agendarmos uma conversa para alinhar detalhes, tirar dúvidas e definir a melhor estrutura para a Baskets. Fico no aguardo!</p>
     <a href="https://wa.me/5511999999999" class="btn-cta reveal">
